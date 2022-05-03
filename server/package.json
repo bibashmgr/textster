@@ -1,0 +1,21 @@
+{
+  "name": "textster-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "textster-backend"
+  },
+  "keywords": [
+    "textster"
+  ],
+  "author": "bibashmagar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
