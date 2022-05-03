@@ -1,5 +1,5 @@
 {
-  "name": "textster-backend",
+  "name": "textster-server",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "textster-backend"
+    "url": "textster-server"
   },
   "keywords": [
     "textster"
