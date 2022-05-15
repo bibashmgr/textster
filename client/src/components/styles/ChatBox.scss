@@ -1,0 +1,47 @@
+// variables
+$base-color: #3AAFA9;
+$primary-color: #FFFFFF;
+$secondary-color: #17252A;
+
+.chatbox-container {
+    height: 90vh;
+
+    .chatbox-navbar{
+        height: 10vh;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .chatbox-content{
+        width: 100%;
+        height: 70vh;
+        padding: 25px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .chatbox-form{
+        height: 10vh;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .chatbox-form-input{
+            width: 60%;
+            height: 28px;
+            padding: 0px 15px;
+        }
+
+        .chatbox-form-btn{
+            margin-left: 10px;
+            font-size: 24px;
+            color: $base-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
