@@ -9,7 +9,10 @@ const ProfileCard = () => {
       <div className='profile-card-avatar'>
         <img src='./images/default_avatar.jpg' alt='avatar' />
       </div>
-      <div className='profile-card-username'>Random User</div>
+      <div className='profile-card-text'>
+        <div className='profile-card-fullname'>Bibash Thapa Magar</div>
+        <div className='profile-card-username'>@bibash.mgr</div>
+      </div>
     </div>
   );
 };

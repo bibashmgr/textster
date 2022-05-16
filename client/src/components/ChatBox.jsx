@@ -4,6 +4,7 @@ import React from 'react';
 import { RiSendPlaneFill } from 'react-icons/ri';
 
 // components
+import ProfileCard from './ProfileCard';
 import Messages from './Messages';
 
 // custom-styling
@@ -12,7 +13,9 @@ import './styles/ChatBox.scss';
 const ChatBox = () => {
   return (
     <div className='chatbox-container'>
-      <div className='chatbox-navbar'>NavBar</div>
+      <div className='chatbox-navbar'>
+        <ProfileCard />
+      </div>
       <div className='chatbox-content'>
         <Messages />
       </div>
