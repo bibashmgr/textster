@@ -3,12 +3,12 @@ $base-color: #3AAFA9;
 $primary-color: #FFFFFF;
 $secondary-color: #17252A;
 
-.profile-card-container {
+.conversation-card-container {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .profile-card-avatar {
+    .conversation-card-avatar {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -20,19 +20,19 @@ $secondary-color: #17252A;
             border-radius: 50%;    
         }
     }
-    .profile-card-text{
+    .conversation-card-text{
         margin-left: 25px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
 
-        .profile-card-fullname{
+        .conversation-card-fullname{
             font-size: 16px;
             font-weight: 600;
             color: $secondary-color;
         }
-        .profile-card-username{
+        .conversation-card-desc{
             font-size: 10px;
             font-weight: 400;
             color: $secondary-color;

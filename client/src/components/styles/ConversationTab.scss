@@ -1,0 +1,8 @@
+.conversation-tab-container {
+    display: flex;
+    flex-direction: column;
+
+    .conversation-tab-box{
+        padding: 15px 25px;
+    }
+}
