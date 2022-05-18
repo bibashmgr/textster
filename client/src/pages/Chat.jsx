@@ -2,20 +2,20 @@ import React from 'react';
 
 // components
 import Topbar from '../components/Topbar';
-import Main from '../components/Main';
+import ChatBox from '../components/ChatBox';
 
 // custom-styling
 import './styles/Layout.scss';
 
-const Home = () => {
+const Chat = () => {
   return (
     <div className='container'>
       <div className='box'>
         <Topbar />
-        <Main />
+        <ChatBox />
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Chat;
