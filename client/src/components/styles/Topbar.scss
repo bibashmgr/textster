@@ -4,7 +4,7 @@ $primary-color: #FFFFFF;
 $secondary-color: #17252A;
 
 .topbar-container {
-    width: 100vw;
+    width: 100%;
     height: 10vh;
     display: flex;
     justify-content: center;
@@ -20,8 +20,9 @@ $secondary-color: #17252A;
         align-items: center;
 
         .topbar-brand {
+            text-decoration: none;
             font-size: 24px;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             color: $primary-color;
             cursor: pointer;
@@ -33,4 +34,10 @@ $secondary-color: #17252A;
             cursor: pointer;
         }
     }
+
+    @media (max-width: 576px) {
+    .topbar-box {
+        padding: 0px 25px;
+    }
+}
 }
