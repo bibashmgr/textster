@@ -6,6 +6,7 @@ import './App.scss';
 // pages
 import Home from './pages/Home';
 import Chat from './pages/Chat';
+import Login from './pages/Login';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Routes>
         <Route path='/' exact element={<Home />} />
         <Route path='/chat' exact element={<Chat />} />
+        <Route path='/login' exact element={<Login />} />
       </Routes>
     </Router>
   );
