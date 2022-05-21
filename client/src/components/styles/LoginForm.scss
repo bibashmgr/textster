@@ -1,0 +1,125 @@
+// variables
+$base-color: #3AAFA9;
+$primary-color: #FFFFFF;
+$secondary-color: #17252A;
+
+.login-form-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .login-form-box {
+        width: 25%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: $base-color;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 50px ;
+
+        .login-form-headers {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .header-brand {
+                font-size: 32px;
+                font-weight: 900;
+                text-transform: uppercase;
+                color: $primary-color;
+                cursor: pointer;
+            }
+            .header-desc {
+                font-size: 18px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: $secondary-color;
+                margin-top: 15px;
+                cursor: pointer;
+            }
+        }
+
+        .login-form-buttons {
+            margin-top: 75px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .google-btn-container{
+                cursor: pointer;
+                padding: 10px 0px;
+                display: grid;
+                grid-template-columns: 15% 85%;
+                grid-gap: 10px;
+                align-items: center;
+                background-color: $primary-color;
+                border-radius: 25px;
+                
+                .google-btn-logo{
+                    justify-self: flex-end;
+                    font-size: 14px;
+                }
+                .google-btn-text{
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+            }
+            .apple-btn-container{
+                cursor: pointer;
+                padding: 10px 0px;
+                margin-top: 25px;
+                display: grid;
+                grid-template-columns: 15% 85%;
+                grid-gap: 10px;
+                align-items: center;
+                background-color: $primary-color;
+                border-radius: 25px;
+                
+                .apple-btn-logo{
+                    justify-self: flex-end;
+                    font-size: 18px;
+                }
+                .apple-btn-text{
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .login-form-box {
+            width: 40%;
+            height: 80%;
+            border-radius: 25px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .login-form-box {
+            width: 50%;
+            height: 80%;
+            border-radius: 25px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .login-form-box {
+            width: 70%;
+            height: 80%;
+            border-radius: 25px;
+        }
+    }
+    
+    @media (max-width: 450px) {
+        .login-form-box {
+            width: 100%;
+            height: 100%;
+            border-radius: 0px;
+        }
+    }
+}
