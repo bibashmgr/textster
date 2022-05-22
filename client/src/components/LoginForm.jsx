@@ -7,6 +7,11 @@ import { FaApple, FaGoogle } from 'react-icons/fa';
 import './styles/LoginForm.scss';
 
 const LoginForm = () => {
+  // handlers
+  const handleGoogleLogin = () => {
+    window.open('http://localhost:9999/auth/google', '_self');
+  };
+
   return (
     <div className='login-form-container'>
       <div className='login-form-box'>
@@ -17,7 +22,7 @@ const LoginForm = () => {
           </div>
         </div>
         <div className='login-form-buttons'>
-          <div className='google-btn-container'>
+          <div className='google-btn-container' onClick={handleGoogleLogin}>
             <FaGoogle className='google-btn-logo' />
             <div className='google-btn-text'>Continue with Google</div>
           </div>
