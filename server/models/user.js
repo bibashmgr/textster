@@ -18,6 +18,10 @@ const userSchema = mongoose.Schema(
       type: String,
       default: 'default.png',
     },
+    friends: {
+      type: Array,
+      default: [],
+    },
   },
   {
     timestamps: true,
