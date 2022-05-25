@@ -1,7 +1,7 @@
 import React from 'react';
 
 // icons
-import { FaApple, FaGoogle } from 'react-icons/fa';
+import { FaFacebookSquare, FaGoogle } from 'react-icons/fa';
 
 // custom-styling
 import './styles/LoginForm.scss';
@@ -18,7 +18,7 @@ const LoginForm = () => {
         <div className='login-form-headers'>
           <div className='header-brand'>Textster</div>
           <div className='header-desc'>
-            Lorem ipsum, dolor sit amet consecte adipisicing elit.
+            Connect with your friends and family through text
           </div>
         </div>
         <div className='login-form-buttons'>
@@ -26,9 +26,9 @@ const LoginForm = () => {
             <FaGoogle className='google-btn-logo' />
             <div className='google-btn-text'>Continue with Google</div>
           </div>
-          <div className='apple-btn-container'>
-            <FaApple className='apple-btn-logo' />
-            <div className='apple-btn-text'>Continue with Apple account</div>
+          <div className='facebook-btn-container'>
+            <FaFacebookSquare className='facebook-btn-logo' />
+            <div className='facebook-btn-text'>Continue with Facebook</div>
           </div>
         </div>
       </div>

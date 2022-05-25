@@ -7,14 +7,16 @@ import './App.scss';
 import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Login from './pages/Login';
+import Setting from './pages/Setting';
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' exact element={<Home />} />
-        <Route path='/chat' exact element={<Chat />} />
-        <Route path='/login' exact element={<Login />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/chat' element={<Chat />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/setting' element={<Setting />} />
       </Routes>
     </Router>
   );
