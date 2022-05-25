@@ -1,0 +1,66 @@
+// variables
+$base-color: #3AAFA9;
+$primary-color: #FFFFFF;
+$secondary-color: #17252A;
+
+.setting-form-container {
+    width: 95%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+
+    .setting-form-box {
+        padding: 25px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .form-username-container {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            input {
+                margin-top: 10px;
+                padding: 5px 10px;
+                font-size: 16px;
+                font-weight: 400;
+                outline: none;
+            }
+        }
+
+        .form-button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            input {
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: 600;
+                padding: 7.5px;
+                border: none;
+                outline: none;
+                color: $primary-color;
+                background-color: $base-color;
+                border-radius: 2.5px;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .setting-form-container{
+        width: 90%;
+    }
+}
