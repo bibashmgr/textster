@@ -13,14 +13,25 @@ router.get(
 
 router.get(
   '/google/callback',
-  passport.authenticate('google', { failureRedirect: `${CLIENT_URL}/login` }),
-  (req, res) => {
-    res.redirect(CLIENT_URL);
-  }
+  passport.authenticate('google', {
+    failureRedirect: `${CLIENT_URL}/login`,
+    successRedirect: CLIENT_URL,
+  })
 );
 
-router.get('/logout', function (req, res, next) {
-  res.redirect(`${CLIENT_URL}/login`);
+router.get('/login/success', (req, res) => {
+  if (req.user) {
+    res.status(200).json(req.user);
+  }
+});
+
+router.get('/logout', (req, res, next) => {
+  req.logout((error) => {
+    if (error) {
+      return next(error);
+    }
+    res.redirect(`${CLIENT_URL}/login`);
+  });
 });
 
 module.exports = router;
