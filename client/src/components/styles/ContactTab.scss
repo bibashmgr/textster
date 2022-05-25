@@ -1,8 +1,41 @@
+// variables
+$base-color: #3AAFA9;
+$primary-color: #FFFFFF;
+$secondary-color: #17252A;
+
 .contact-tab-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
 
     .contact-tab-box{
         padding: 15px 25px;
+        display: flex;
+    }
+
+    .contact-add-btn {
+        position: absolute;
+        bottom: 12.5px;
+        right: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 15px;
+        background-color: $base-color;
+        border-radius: 50%;
+        cursor: pointer;
+
+        .contact-add-logo {
+            font-size: 24px;
+            color: $primary-color;
+        }
+    }
+
+    .contact-modal {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
