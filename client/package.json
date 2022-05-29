@@ -2,7 +2,7 @@
   "name": "textster-client",
   "version": "1.0.0",
   "private": true,
-  "proxy": "https://localhost:9999/",
+  "proxy": "http://localhost:9999/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
