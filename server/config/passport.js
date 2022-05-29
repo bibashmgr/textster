@@ -42,9 +42,11 @@ passport.use(
 );
 
 passport.serializeUser((user, cb) => {
-  return cb(null, user);
+  return cb(null, user.id);
 });
 
-passport.deserializeUser((user, cb) => {
-  return cb(null, user);
+passport.deserializeUser((id, cb) => {
+  User.findById(id).then((user) => {
+    return cb(null, user);
+  });
 });
