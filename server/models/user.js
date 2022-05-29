@@ -8,6 +8,10 @@ const userSchema = mongoose.Schema(
     email: {
       type: String,
     },
+    username: {
+      type: String,
+      default: '',
+    },
     firstname: {
       type: String,
     },
@@ -18,7 +22,7 @@ const userSchema = mongoose.Schema(
       type: String,
       default: 'default.png',
     },
-    friends: {
+    contacts: {
       type: Array,
       default: [],
     },
