@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // icons
 import { RiLogoutBoxRLine } from 'react-icons/ri';
@@ -15,7 +16,9 @@ const Topbar = () => {
   return (
     <div className='topbar-container'>
       <div className='topbar-box'>
-        <div className='topbar-brand'>Textster</div>
+        <Link to='/' className='topbar-brand'>
+          Textster
+        </Link>
         <div className='topbar-btn'>
           <RiLogoutBoxRLine title='logout' onClick={handleLogout} />
         </div>
