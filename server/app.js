@@ -23,7 +23,7 @@ require('./config/passport.js');
 // middlewares
 app.use(
   cors({
-    origin: CLIENT_URL,
+    origin: '*',
     credentials: true,
   })
 );
@@ -40,20 +40,21 @@ app.use(
     store: MongoStore.create({ mongoUrl: CONNECTION_URL }),
   })
 );
-// app.use(passport.authenticate(session));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // routes
 const indexRoutes = require('./routes/index.js');
 const authRoutes = require('./routes/auth.js');
-const contactRoutes = require('./routes/contact.js');
-const conversationRoutes = require('./routes/conversation.js');
+const userRoutes = require('./routes/user.js');
+// const contactRoutes = require('./routes/contact.js');
+// const conversationRoutes = require('./routes/conversation.js');
 
 app.use('/', indexRoutes);
 app.use('/auth', authRoutes);
-app.use('/contact', contactRoutes);
-app.use('/conversation', conversationRoutes);
+app.use('/user', userRoutes);
+// app.use('/contact', contactRoutes);
+// app.use('/conversation', conversationRoutes);
 
 // creating http-server
 const httpServer = http.createServer(app);
