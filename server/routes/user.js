@@ -12,14 +12,15 @@ router.put('/update', async (req, res) => {
       res.status(400).json({ message: 'Username already taken' });
     } else {
       User.findByIdAndUpdate(
-        req.body.id,
+        req.user._id.toString(),
         {
           $set: { username: req.body.username },
         },
+        { new: true },
         (err, user) => {
           if (err) throw err;
           if (user) {
-            res.status(201).json({ message: 'Update Successfully' });
+            res.status(201).json(user);
           } else {
             res.status(400).json({ message: 'Something went wrong' });
           }
