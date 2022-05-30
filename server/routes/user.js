@@ -3,9 +3,12 @@ const express = require('express');
 // model
 const User = require('../models/user.js');
 
+// middlewares
+const { getVerify } = require('../middlewares/verify.js');
+
 const router = express.Router();
 
-router.put('/update', async (req, res) => {
+router.put('/update', getVerify, async (req, res) => {
   User.findOne({ username: req.body.username }, (error, result) => {
     if (error) throw error;
     if (result) {
@@ -17,10 +20,10 @@ router.put('/update', async (req, res) => {
           $set: { username: req.body.username },
         },
         { new: true },
-        (err, user) => {
+        (err, updatedUser) => {
           if (err) throw err;
-          if (user) {
-            res.status(201).json(user);
+          if (updatedUser) {
+            res.status(201).json(updatedUser);
           } else {
             res.status(400).json({ message: 'Something went wrong' });
           }
