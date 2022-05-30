@@ -1,21 +1,21 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 // custom-styling
 import './styles/SettingForm.scss';
 
+// actions
+import { setLogger } from '../features/userSlice';
+
 const SettingForm = () => {
+  const dispatch = useDispatch();
+
   const { logger } = useSelector((state) => state.user);
-  const navigate = useNavigate();
 
   const [username, setUsername] = useState('');
 
-  useEffect(() => {}, []);
-
-  // handlers
   const handleChange = (e) => {
     setUsername(e.target.value);
   };
@@ -28,7 +28,7 @@ const SettingForm = () => {
       messages.error = 'Username is required';
     } else if (username.length < 3) {
       messages.error = 'Username is too short';
-    } else if (username.length > 10) {
+    } else if (username.length > 20) {
       messages.error = 'Username is too long';
     } else if (!pattern.test(username)) {
       messages.error = 'Invalid character entry';
@@ -39,8 +39,8 @@ const SettingForm = () => {
         .put('/user/update', { id: logger._id, username: username })
         .then((res) => {
           if (res.status === 201) {
+            dispatch(setLogger(res.data));
             setUsername('');
-            navigate('/');
           }
         })
         .catch((error) => {

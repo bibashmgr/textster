@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // icons
 import { BsFillChatSquareTextFill, BsFillPeopleFill } from 'react-icons/bs';
+import { AiFillSetting } from 'react-icons/ai';
 
 // components
 import ConversationTab from './ConversationTab';
@@ -13,15 +15,20 @@ import ProfileCard from './ProfileCard';
 import './styles/Main.scss';
 
 const Sidebar = () => {
-  // states
+  const navigate = useNavigate();
+
   const [conversationOpen, setConversationOpen] = useState(true);
 
-  // handlers
   const switchConversation = () => {
     setConversationOpen(true);
   };
+
   const switchContact = () => {
     setConversationOpen(false);
+  };
+
+  const handleSettingBtn = () => {
+    navigate('/setting');
   };
 
   return (
@@ -70,6 +77,7 @@ const Sidebar = () => {
       </div>
       <div className='main-profile'>
         <ProfileCard />
+        <AiFillSetting className='setting-logo' onClick={handleSettingBtn} />
       </div>
     </div>
   );
