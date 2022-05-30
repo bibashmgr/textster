@@ -14,7 +14,7 @@ import ProfileCard from './ProfileCard';
 // custom-styling
 import './styles/Main.scss';
 
-const Sidebar = () => {
+const Sidebar = ({ userInfo }) => {
   const navigate = useNavigate();
 
   const [conversationOpen, setConversationOpen] = useState(true);
@@ -76,7 +76,7 @@ const Sidebar = () => {
         </div>
       </div>
       <div className='main-profile'>
-        <ProfileCard />
+        <ProfileCard userInfo={userInfo} />
         <AiFillSetting className='setting-logo' onClick={handleSettingBtn} />
       </div>
     </div>

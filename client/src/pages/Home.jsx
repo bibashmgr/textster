@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
 // components
@@ -15,6 +15,8 @@ import { setLogger } from '../features/userSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
+
+  const { logger } = useSelector((state) => state.user);
 
   useEffect(() => {
     axios
@@ -31,7 +33,7 @@ const Home = () => {
     <div className='container'>
       <div className='box'>
         <Topbar />
-        <Main />
+        <Main userInfo={logger} />
       </div>
     </div>
   );

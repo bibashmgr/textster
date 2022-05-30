@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 // custom-styling
 import './styles/SettingForm.scss';
@@ -12,13 +12,12 @@ import { setLogger } from '../features/userSlice';
 const SettingForm = () => {
   const dispatch = useDispatch();
 
-  const { logger } = useSelector((state) => state.user);
-
   const [username, setUsername] = useState('');
 
   const handleChange = (e) => {
     setUsername(e.target.value);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     let messages = {};
@@ -36,7 +35,7 @@ const SettingForm = () => {
 
     if (Object.entries(messages).length === 0) {
       axios
-        .put('/user/update', { id: logger._id, username: username })
+        .put('/user/update', { username: username })
         .then((res) => {
           if (res.status === 201) {
             dispatch(setLogger(res.data));

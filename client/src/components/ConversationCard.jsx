@@ -7,7 +7,7 @@ const ConversationCard = () => {
   return (
     <div className='conversation-card-container'>
       <div className='conversation-card-avatar'>
-        <img src='./images/default_avatar.jpg' alt='avatar' />
+        <img src='./images/default.jpg' alt='avatar' />
       </div>
       <div className='conversation-card-text'>
         <div className='conversation-card-fullname'>Bibash Thapa Magar</div>

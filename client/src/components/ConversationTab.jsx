@@ -12,9 +12,6 @@ const ConversationTab = () => {
       <div className='conversation-tab-box'>
         <ConversationCard />
       </div>
-      <div className='conversation-tab-box'>
-        <ConversationCard />
-      </div>
     </div>
   );
 };
