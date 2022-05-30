@@ -47,13 +47,13 @@ app.use(passport.session());
 const indexRoutes = require('./routes/index.js');
 const authRoutes = require('./routes/auth.js');
 const userRoutes = require('./routes/user.js');
-// const contactRoutes = require('./routes/contact.js');
+const contactRoutes = require('./routes/contact.js');
 // const conversationRoutes = require('./routes/conversation.js');
 
 app.use('/', indexRoutes);
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
-// app.use('/contact', contactRoutes);
+app.use('/contact', contactRoutes);
 // app.use('/conversation', conversationRoutes);
 
 // creating http-server

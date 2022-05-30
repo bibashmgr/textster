@@ -24,7 +24,7 @@ const userSchema = mongoose.Schema(
     },
     avatar: {
       type: String,
-      default: 'default.png',
+      default: 'default.jpg',
     },
     contacts: {
       type: Array,
