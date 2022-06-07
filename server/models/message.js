@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const messgaeSchema = mongoose.Schema(
+const messageSchema = mongoose.Schema(
   {
     conversationId: {
       type: String,
