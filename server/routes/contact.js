@@ -25,7 +25,7 @@ router.get('/', getVerify, async (req, res) => {
 });
 
 // add new contact
-router.put('/add', async (req, res) => {
+router.put('/add', getVerify, async (req, res) => {
   try {
     const searchUser = await User.findOne({ username: req.body.username });
     if (searchUser) {

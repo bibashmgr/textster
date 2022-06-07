@@ -48,13 +48,15 @@ const indexRoutes = require('./routes/index.js');
 const authRoutes = require('./routes/auth.js');
 const userRoutes = require('./routes/user.js');
 const contactRoutes = require('./routes/contact.js');
-// const conversationRoutes = require('./routes/conversation.js');
+const conversationRoutes = require('./routes/conversation.js');
+const messageRoutes = require('./routes/message.js');
 
 app.use('/', indexRoutes);
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
 app.use('/contact', contactRoutes);
-// app.use('/conversation', conversationRoutes);
+app.use('/conversation', conversationRoutes);
+app.use('/message', messageRoutes);
 
 // creating http-server
 const httpServer = http.createServer(app);
