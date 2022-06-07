@@ -31,7 +31,7 @@ const ContactTab = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [dispatch, userContacts]);
+  }, [dispatch]);
 
   // handlers
   const handleAdd = () => {
@@ -45,7 +45,13 @@ const ContactTab = () => {
           userContacts &&
           logger.contacts.map((contact, index) => {
             return (
-              <div className='contact-tab-box' key={index}>
+              <div
+                className='contact-tab-box'
+                key={index}
+                onClick={() => {
+                  console.log(contact);
+                }}
+              >
                 <ProfileCard userInfo={userContacts[index]} />
               </div>
             );

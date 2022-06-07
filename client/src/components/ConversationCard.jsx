@@ -3,16 +3,26 @@ import React from 'react';
 // custom-styling
 import './styles/ConversationCard.scss';
 
-const ConversationCard = () => {
+const ConversationCard = ({ userInfo, messageInfo }) => {
   return (
     <div className='conversation-card-container'>
       <div className='conversation-card-avatar'>
-        <img src='./images/default.jpg' alt='avatar' />
+        <img
+          src={
+            userInfo
+              ? userInfo.avatar && userInfo.avatar
+              : './images/default.jpg'
+          }
+          alt=''
+        />
       </div>
       <div className='conversation-card-text'>
-        <div className='conversation-card-fullname'>Bibash Thapa Magar</div>
+        <div className='conversation-card-fullname'>
+          {userInfo &&
+            userInfo.firstname + ' ' + (userInfo.lastname && userInfo.lastname)}
+        </div>
         <div className='conversation-card-desc'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          {messageInfo && messageInfo.text}
         </div>
       </div>
     </div>

@@ -8,8 +8,12 @@ const ProfileCard = ({ userInfo }) => {
     <div className='profile-card-container'>
       <div className='profile-card-avatar'>
         <img
-          src={userInfo && userInfo.avatar && userInfo.avatar}
-          alt='avatar'
+          src={
+            userInfo
+              ? userInfo.avatar && userInfo.avatar
+              : './images/default.jpg'
+          }
+          alt=''
         />
       </div>
       <div className='profile-card-text'>
