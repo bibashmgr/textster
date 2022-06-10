@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 // components
 import MessageCard from './MessageCard';
@@ -6,21 +7,22 @@ import MessageCard from './MessageCard';
 // custom-styling
 import './styles/Messages.scss';
 
-const Messages = () => {
+const Messages = ({ messagesInfo, friendInfo }) => {
+  const { logger } = useSelector((state) => state.user);
+
   return (
     <div className='messages-container'>
-      <div className='messages-box'>
-        <MessageCard isUser={false} />
-      </div>
-      <div className='messages-box'>
-        <MessageCard isUser={true} />
-      </div>
-      <div className='messages-box'>
-        <MessageCard isUser={false} />
-      </div>
-      <div className='messages-box'>
-        <MessageCard isUser={true} />
-      </div>
+      {messagesInfo.map((messageInfo) => {
+        return (
+          <div className='messages-box' key={messageInfo._id}>
+            <MessageCard
+              isUser={messageInfo.senderId === logger._id}
+              messageInfo={messageInfo}
+              friendInfo={friendInfo}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React from 'react';
 // custom-styling
 import './styles/MessageCard.scss';
 
-const MessageCard = ({ isUser }) => {
+const MessageCard = ({ isUser, messageInfo, friendInfo }) => {
   // styles
 
   const flexLeft = {
@@ -34,7 +34,14 @@ const MessageCard = ({ isUser }) => {
     >
       {!isUser && (
         <div className='message-card-avatar'>
-          <img src='./images/default_avatar.jpg' alt='avatar' />
+          <img
+            src={
+              friendInfo
+                ? friendInfo.avatar && friendInfo.avatar
+                : './images/default.jpg'
+            }
+            alt=''
+          />
         </div>
       )}
       <div className='message-card-text'>
@@ -42,13 +49,13 @@ const MessageCard = ({ isUser }) => {
           className='message-card-desc'
           style={isUser ? darkBackground : lightBackground}
         >
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          <div
-            className='message-card-date'
-            style={isUser ? rightPosition : leftPosition}
-          >
-            2020/10/12 10:24 AM
-          </div>
+          {messageInfo.text}
+        </div>
+        <div
+          className='message-card-date'
+          style={isUser ? rightPosition : leftPosition}
+        >
+          2020/10/12 10:24 AM
         </div>
       </div>
     </div>
