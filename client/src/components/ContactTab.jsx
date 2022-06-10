@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
@@ -17,6 +18,7 @@ import './styles/ContactTab.scss';
 import { setUserContacts } from '../features/userSlice';
 
 const ContactTab = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { logger, userContacts } = useSelector((state) => state.user);
@@ -49,7 +51,7 @@ const ContactTab = () => {
                 className='contact-tab-box'
                 key={index}
                 onClick={() => {
-                  console.log(contact);
+                  navigate(`/chat/${contact}`);
                 }}
               >
                 <ProfileCard userInfo={userContacts[index]} />

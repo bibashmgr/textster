@@ -1,7 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
 
 //components
 import ConversationCard from './ConversationCard';
@@ -13,6 +14,7 @@ import './styles/ConversationTab.scss';
 import { setUserConversations } from '../features/userSlice';
 
 const ConversationTab = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { userConversations } = useSelector((state) => state.user);
@@ -22,7 +24,6 @@ const ConversationTab = () => {
       .get('/conversation')
       .then((res) => {
         dispatch(setUserConversations(res.data));
-        // console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -35,7 +36,13 @@ const ConversationTab = () => {
         userConversations.lastMessages &&
         userConversations.lastMessages.map((convo, index) => {
           return (
-            <div className='conversation-tab-box' key={convo.conversationId}>
+            <div
+              className='conversation-tab-box'
+              key={convo.conversationId}
+              onClick={() => {
+                navigate(`/chat/${userConversations.membersInfo[index]._id}`);
+              }}
+            >
               <ConversationCard
                 userInfo={userConversations.membersInfo[index]}
                 messageInfo={convo}
