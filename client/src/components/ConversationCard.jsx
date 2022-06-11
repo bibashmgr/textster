@@ -3,7 +3,7 @@ import React from 'react';
 // custom-styling
 import './styles/ConversationCard.scss';
 
-const ConversationCard = ({ userInfo, messageInfo }) => {
+const ConversationCard = ({ userInfo }) => {
   return (
     <div className='conversation-card-container'>
       <div className='conversation-card-avatar'>
@@ -22,7 +22,7 @@ const ConversationCard = ({ userInfo, messageInfo }) => {
             userInfo.firstname + ' ' + (userInfo.lastname && userInfo.lastname)}
         </div>
         <div className='conversation-card-desc'>
-          {messageInfo && messageInfo.text}
+          {userInfo.lastMessage && userInfo.lastMessage.text}
         </div>
       </div>
     </div>

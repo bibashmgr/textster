@@ -33,20 +33,16 @@ const ConversationTab = () => {
   return (
     <div className='conversation-tab-container'>
       {userConversations &&
-        userConversations.lastMessages &&
-        userConversations.lastMessages.map((convo, index) => {
+        userConversations.map((convo) => {
           return (
             <div
               className='conversation-tab-box'
-              key={convo.conversationId}
+              key={convo._id}
               onClick={() => {
-                navigate(`/chat/${userConversations.membersInfo[index]._id}`);
+                navigate(`/chat/${convo._id}`);
               }}
             >
-              <ConversationCard
-                userInfo={userConversations.membersInfo[index]}
-                messageInfo={convo}
-              />
+              <ConversationCard userInfo={convo} />
             </div>
           );
         })}
