@@ -17,6 +17,7 @@ const router = express.Router();
 router.get('/', getVerify, async (req, res) => {
   const membersInfo = [];
   const lastMessages = [];
+  const finalConversation = [];
   try {
     const users = await User.find();
     const conversations = await Conversation.find({
@@ -44,7 +45,13 @@ router.get('/', getVerify, async (req, res) => {
           }
         }
       }); // mappingOfConversation
-      res.status(200).json({ membersInfo, lastMessages });
+      membersInfo.map((memberInfo, index) => {
+        finalConversation.push({
+          ...memberInfo._doc,
+          lastMessage: lastMessages[index],
+        });
+      });
+      res.status(200).json(finalConversation);
     } else {
       res.status(200).json([]);
     }
