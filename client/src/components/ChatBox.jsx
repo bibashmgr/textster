@@ -18,6 +18,7 @@ const ChatBox = () => {
 
   const [friendInfo, setFriendInfo] = useState({});
   const [messagesInfo, setMessagesInfo] = useState([]);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     axios
@@ -44,6 +45,25 @@ const ChatBox = () => {
   // handlers
   const handleSend = (e) => {
     e.preventDefault();
+    let errors = {};
+    if (message === '') {
+      errors.others = 'Text is empty';
+    }
+
+    if (Object.entries(errors).length > 0) {
+      console.log(errors);
+    }
+
+    if (Object.entries(errors).length === 0) {
+      axios
+        .post(`/message/${friendInfo._id}/create`, { text: message })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
@@ -61,6 +81,8 @@ const ChatBox = () => {
           id='message'
           className='chatbox-form-input'
           autoComplete='off'
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
         />
         <button className='chatbox-form-btn' type='submit'>
           <RiSendPlaneFill style={{ cursor: 'pointer' }} />
