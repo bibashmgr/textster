@@ -51,6 +51,9 @@ router.get('/', getVerify, async (req, res) => {
           lastMessage: lastMessages[index],
         });
       });
+      finalConversation.sort((a, b) => {
+        return b.lastMessage.createdAt - a.lastMessage.createdAt;
+      });
       res.status(200).json(finalConversation);
     } else {
       res.status(200).json([]);
