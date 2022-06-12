@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 // custom-styling
 import './styles/MessageCard.scss';
@@ -21,10 +22,16 @@ const MessageCard = ({ isUser, messageInfo, friendInfo }) => {
     color: '#FFFFFF',
   };
   const leftPosition = {
-    left: '16px',
+    alignItems: 'flex-start',
   };
   const rightPosition = {
-    right: '16px',
+    alignItems: 'flex-end',
+  };
+  const leftMargin = {
+    marginLeft: '10px',
+  };
+  const rightMargin = {
+    marginRight: '10px',
   };
 
   return (
@@ -44,7 +51,10 @@ const MessageCard = ({ isUser, messageInfo, friendInfo }) => {
           />
         </div>
       )}
-      <div className='message-card-text'>
+      <div
+        className='message-card-text'
+        style={isUser ? rightPosition : leftPosition}
+      >
         <div
           className='message-card-desc'
           style={isUser ? darkBackground : lightBackground}
@@ -53,9 +63,9 @@ const MessageCard = ({ isUser, messageInfo, friendInfo }) => {
         </div>
         <div
           className='message-card-date'
-          style={isUser ? rightPosition : leftPosition}
+          style={isUser ? rightMargin : leftMargin}
         >
-          2020/10/12 10:24 AM
+          {moment(messageInfo.createdAt).fromNow()}
         </div>
       </div>
     </div>

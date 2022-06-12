@@ -12,17 +12,18 @@ const Messages = ({ messagesInfo, friendInfo }) => {
 
   return (
     <div className='messages-container'>
-      {messagesInfo.map((messageInfo) => {
-        return (
-          <div className='messages-box' key={messageInfo._id}>
-            <MessageCard
-              isUser={messageInfo.senderId === logger._id}
-              messageInfo={messageInfo}
-              friendInfo={friendInfo}
-            />
-          </div>
-        );
-      })}
+      {logger &&
+        messagesInfo.map((messageInfo) => {
+          return (
+            <div className='messages-box' key={messageInfo._id}>
+              <MessageCard
+                isUser={messageInfo.senderId === logger._id}
+                messageInfo={messageInfo}
+                friendInfo={friendInfo}
+              />
+            </div>
+          );
+        })}
     </div>
   );
 };

@@ -26,6 +26,7 @@ $secondary-color: #17252A;
     .chatbox-content{
         width: 100%;
         height: 70vh;
+        overflow-y: scroll;
         padding: 15px;
         display: flex;
         justify-content: flex-start;

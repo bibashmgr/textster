@@ -19,6 +19,7 @@ const ChatBox = () => {
   const [friendInfo, setFriendInfo] = useState({});
   const [messagesInfo, setMessagesInfo] = useState([]);
   const [message, setMessage] = useState('');
+  const [counter, setCounter] = useState(false);
 
   useEffect(() => {
     axios
@@ -40,7 +41,7 @@ const ChatBox = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
+  }, [id, counter]);
 
   // handlers
   const handleSend = (e) => {
@@ -63,6 +64,8 @@ const ChatBox = () => {
         .catch((error) => {
           console.log(error);
         });
+      setMessage('');
+      setCounter(!counter);
     }
   };
 
@@ -74,7 +77,11 @@ const ChatBox = () => {
       <div className='chatbox-content'>
         <Messages messagesInfo={messagesInfo} friendInfo={friendInfo} />
       </div>
-      <form className='chatbox-form' onSubmit={handleSend}>
+      <form
+        className='chatbox-form'
+        onSubmit={handleSend}
+        onkeypress='return event.keyCode != 13;'
+      >
         <input
           type='text'
           name='message'

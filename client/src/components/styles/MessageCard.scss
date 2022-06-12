@@ -19,10 +19,9 @@ $secondary-color: #17252A;
         }
     }
     .message-card-text{
-        position: relative;
-        margin-left: 25px;
         display: flex;
         flex-direction: column;
+        margin-left: 25px;
         
         .message-card-desc {
             font-size: 16px;
@@ -34,9 +33,7 @@ $secondary-color: #17252A;
 
         }
         .message-card-date {
-            min-width: 100px;
-            position: absolute;
-            bottom: -16px;
+            margin-top: 5px;
             font-size: 10px;
             font-weight: 400;
             opacity: 0.6;
