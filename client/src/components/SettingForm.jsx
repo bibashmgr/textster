@@ -1,7 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+
+// icons
+import { FaTimes } from 'react-icons/fa';
 
 // custom-styling
 import './styles/SettingForm.scss';
@@ -11,6 +15,7 @@ import { setLogger } from '../features/userSlice';
 
 const SettingForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState('');
 
@@ -48,6 +53,10 @@ const SettingForm = () => {
     }
   };
 
+  const handleCancel = () => {
+    navigate('/');
+  };
+
   return (
     <div className='setting-form-container'>
       <form className='setting-form-box' onSubmit={handleSubmit}>
@@ -66,6 +75,9 @@ const SettingForm = () => {
         </div>
         <div className='form-button-container'>
           <input type='submit' value='Update' />
+        </div>
+        <div className='cancel-button' onClick={handleCancel}>
+          <FaTimes className='cancel-logo' />
         </div>
       </form>
     </div>
