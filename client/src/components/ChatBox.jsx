@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -77,11 +77,7 @@ const ChatBox = () => {
       <div className='chatbox-content'>
         <Messages messagesInfo={messagesInfo} friendInfo={friendInfo} />
       </div>
-      <form
-        className='chatbox-form'
-        onSubmit={handleSend}
-        onkeypress='return event.keyCode != 13;'
-      >
+      <form className='chatbox-form' onSubmit={handleSend}>
         <input
           type='text'
           name='message'

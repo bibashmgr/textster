@@ -1,4 +1,6 @@
+import { useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import io from 'socket.io-client';
 
 // Custom-styling
 import './App.scss';
@@ -10,6 +12,14 @@ import Login from './pages/Login';
 import Setting from './pages/Setting';
 
 const App = () => {
+  const socket = useRef();
+
+  useEffect(() => {
+    socket.current = io('ws://localhost:9999', {
+      withCredentials: true,
+    });
+  }, []);
+
   return (
     <Router>
       <Routes>

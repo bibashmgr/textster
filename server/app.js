@@ -7,23 +7,21 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const passport = require('passport');
+const { Server } = require('socket.io');
 
 const app = express();
 dotenv.config();
 
-// environment-variables
 const CLIENT_URL = process.env.CLIENT_URL;
 const SESSION_SECRET = process.env.SESSION_SECRET;
 const CONNECTION_URL = process.env.MONGODB_LOCAL_URL;
 const PORT = process.env.PORT || 9999;
 
-// config
 require('./config/passport.js');
 
-// middlewares
 app.use(
   cors({
-    origin: '*',
+    origin: 'http://localhost:3000',
     credentials: true,
   })
 );
@@ -43,7 +41,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// routes
 const indexRoutes = require('./routes/index.js');
 const authRoutes = require('./routes/auth.js');
 const userRoutes = require('./routes/user.js');
@@ -58,8 +55,16 @@ app.use('/contact', contactRoutes);
 app.use('/conversation', conversationRoutes);
 app.use('/message', messageRoutes);
 
-// creating http-server
 const httpServer = http.createServer(app);
+
+const io = new Server(httpServer, {
+  cors: {
+    origin: 'http://localhost:3000',
+    credentials: true,
+  },
+});
+
+require('./config/socket.js')(io);
 
 mongoose.connect(
   CONNECTION_URL,
