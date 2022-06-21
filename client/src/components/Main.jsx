@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 // icons
 import { BsFillChatSquareTextFill, BsFillPeopleFill } from 'react-icons/bs';
@@ -14,10 +15,12 @@ import ProfileCard from './ProfileCard';
 // custom-styling
 import './styles/Main.scss';
 
-const Sidebar = ({ userInfo }) => {
+const Sidebar = () => {
   const navigate = useNavigate();
 
   const [conversationOpen, setConversationOpen] = useState(true);
+
+  const { logger } = useSelector((state) => state.user);
 
   const switchConversation = () => {
     setConversationOpen(true);
@@ -76,7 +79,7 @@ const Sidebar = ({ userInfo }) => {
         </div>
       </div>
       <div className='main-profile'>
-        <ProfileCard userInfo={userInfo} />
+        <ProfileCard userInfo={logger} />
         <AiFillSetting className='setting-logo' onClick={handleSettingBtn} />
       </div>
     </div>

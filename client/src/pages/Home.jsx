@@ -1,8 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
+// import { useNavigate } from 'react-router-dom';
+// import { useEffect } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+// import axios from 'axios';
 
 // components
 import Topbar from '../components/Topbar';
@@ -12,32 +12,34 @@ import Main from '../components/Main';
 import './styles/Layout.scss';
 
 // actions
-import { setLogger } from '../features/userSlice';
+// import { setLogger } from '../features/userSlice';
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
-  const { logger } = useSelector((state) => state.user);
+  // const { logger } = useSelector((state) => state.user);
 
-  useEffect(() => {
-    axios
-      .get('/auth/login/success')
-      .then((res) => {
-        dispatch(setLogger(res.data));
-      })
-      .catch((error) => {
-        if (error.response.data.message === 'Expired') {
-          navigate('/login');
-        }
-      });
-  }, [dispatch, navigate]);
+  // useEffect(() => {
+  //   axios
+  //     .get('/auth/login/success')
+  //     .then((res) => {
+  //       dispatch(setLogger(res.data));
+  //     })
+  //     .catch((error) => {
+  //       if (error.response.data.message === 'Expired') {
+  //         navigate('/login');
+  //       }
+  //     });
+  // }, [dispatch, navigate]);
 
   return (
     <div className='container'>
       <div className='box'>
         <Topbar />
-        <Main userInfo={logger} />
+        <Main
+        // userInfo={logger}
+        />
       </div>
     </div>
   );
