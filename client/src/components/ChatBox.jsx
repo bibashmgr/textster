@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 // icons
@@ -13,13 +14,14 @@ import Messages from './Messages';
 // custom-styling
 import './styles/ChatBox.scss';
 
-const ChatBox = () => {
+const ChatBox = ({ socket, logger }) => {
   const { id } = useParams();
 
   const [friendInfo, setFriendInfo] = useState({});
   const [messagesInfo, setMessagesInfo] = useState([]);
   const [message, setMessage] = useState('');
-  const [counter, setCounter] = useState(false);
+  const [arrivalMessage, setArrivalMessage] = useState(null);
+  const [isSent, setIsSent] = useState(false);
 
   useEffect(() => {
     axios
@@ -30,7 +32,24 @@ const ChatBox = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    socket.current?.on('getMessage', (data) => {
+      setArrivalMessage({
+        senderId: data.senderId,
+        text: data.text,
+        createdAt: Date.now(),
+      });
+    });
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    arrivalMessage && setMessagesInfo((prev) => [...prev, arrivalMessage]);
+    // eslint-disable-next-line
+  }, [arrivalMessage]);
 
   useEffect(() => {
     axios
@@ -41,7 +60,8 @@ const ChatBox = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [id, counter]);
+    // eslint-disable-next-line
+  }, [isSent]);
 
   // handlers
   const handleSend = (e) => {
@@ -56,16 +76,20 @@ const ChatBox = () => {
     }
 
     if (Object.entries(errors).length === 0) {
+      socket.current?.emit('sendMessage', {
+        senderId: logger._id,
+        receiverId: id,
+        text: message,
+      });
       axios
         .post(`/message/${friendInfo._id}/create`, { text: message })
         .then((res) => {
-          console.log(res.data);
+          setIsSent(!isSent);
         })
         .catch((error) => {
           console.log(error);
         });
       setMessage('');
-      setCounter(!counter);
     }
   };
 

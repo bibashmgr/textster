@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import io from 'socket.io-client';
 
 // Custom-styling
@@ -15,7 +15,7 @@ import Setting from './pages/Setting';
 const App = () => {
   const socket = useRef();
 
-  const { logger } = useSelector((state) => state.value || {});
+  // const { logger } = useSelector((state) => state.value);
 
   useEffect(() => {
     socket.current = io('ws://localhost:9999', {
@@ -23,15 +23,11 @@ const App = () => {
     });
   }, []);
 
-  useEffect(() => {
-    socket.current.emit('getUserId', logger && logger._id);
-  }, [logger]);
-
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/chat/:id' element={<Chat />} />
+        <Route path='/' element={<Home socket={socket} />} />
+        <Route path='/chat/:id' element={<Chat socket={socket} />} />
         <Route path='/login' element={<Login />} />
         <Route path='/setting' element={<Setting />} />
       </Routes>

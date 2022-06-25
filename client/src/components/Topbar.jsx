@@ -24,9 +24,9 @@ const Topbar = () => {
         dispatch(setLogger(res.data));
       })
       .catch((error) => {
-        // if (error.response.data.message === 'Expired') {
-        //   navigate('/login');
-        // }
+        if (error.response.data.message === 'Expired') {
+          navigate('/login');
+        }
         console.log(error);
       });
   }, [dispatch, navigate]);
