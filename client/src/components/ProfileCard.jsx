@@ -1,6 +1,5 @@
 import React from 'react';
 
-// custom-styling
 import './styles/ProfileCard.scss';
 
 const ProfileCard = ({ userInfo }) => {

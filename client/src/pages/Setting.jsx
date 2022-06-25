@@ -1,10 +1,8 @@
 import React from 'react';
 
-// components
 import Topbar from '../components/Topbar';
 import SettingForm from '../components/SettingForm';
 
-// custom-styling
 import './styles/Layout.scss';
 
 const Setting = () => {

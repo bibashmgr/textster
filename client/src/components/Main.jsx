@@ -3,16 +3,13 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-// icons
 import { BsFillChatSquareTextFill, BsFillPeopleFill } from 'react-icons/bs';
 import { AiFillSetting } from 'react-icons/ai';
 
-// components
 import ConversationTab from './ConversationTab';
 import ContactTab from './ContactTab';
 import ProfileCard from './ProfileCard';
 
-// custom-styling
 import './styles/Main.scss';
 
 const Sidebar = () => {

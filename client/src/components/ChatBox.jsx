@@ -1,17 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
 import axios from 'axios';
 
-// icons
 import { RiSendPlaneFill } from 'react-icons/ri';
 
-// components
 import ProfileCard from './ProfileCard';
 import Messages from './Messages';
 
-// custom-styling
 import './styles/ChatBox.scss';
 
 const ChatBox = ({ socket, logger }) => {

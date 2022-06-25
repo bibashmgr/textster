@@ -1,6 +1,5 @@
 import React from 'react';
 
-// custom-styling
 import './styles/ConversationCard.scss';
 
 const ConversationCard = ({ userInfo }) => {

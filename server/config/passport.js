@@ -4,11 +4,9 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-// environment variables
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 
-// models
 const User = require('../models/user.js');
 
 passport.use(

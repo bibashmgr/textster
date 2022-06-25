@@ -1,9 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
 import io from 'socket.io-client';
 
-// Custom-styling
 import './App.scss';
 
 // pages
@@ -14,8 +12,6 @@ import Setting from './pages/Setting';
 
 const App = () => {
   const socket = useRef();
-
-  // const { logger } = useSelector((state) => state.value);
 
   useEffect(() => {
     socket.current = io('ws://localhost:9999', {

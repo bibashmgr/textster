@@ -4,17 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
-// icons
 import { FaUserPlus } from 'react-icons/fa';
 
-// components
 import ProfileCard from './ProfileCard';
 import ContactModal from './ContactModal';
 
-// custom-styling
 import './styles/ContactTab.scss';
 
-// actions
 import { setUserContacts } from '../features/userSlice';
 
 const ContactTab = () => {

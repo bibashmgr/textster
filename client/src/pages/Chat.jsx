@@ -1,11 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-// components
 import Topbar from '../components/Topbar';
 import ChatBox from '../components/ChatBox';
 
-// custom-styling
 import './styles/Layout.scss';
 
 const Chat = ({ socket }) => {

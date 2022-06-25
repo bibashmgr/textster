@@ -1,9 +1,7 @@
 const express = require('express');
 
-// model
 const User = require('../models/user.js');
 
-// middlewares
 const { getVerify } = require('../middlewares/verify.js');
 
 const router = express.Router();

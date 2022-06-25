@@ -4,13 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
-//components
 import ConversationCard from './ConversationCard';
 
-// custom-styling
 import './styles/ConversationTab.scss';
 
-// actions
 import { setUserConversations } from '../features/userSlice';
 
 const ConversationTab = () => {

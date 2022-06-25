@@ -21,7 +21,7 @@ require('./config/passport.js');
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: CLIENT_URL,
     credentials: true,
   })
 );
@@ -59,7 +59,7 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: CLIENT_URL,
     credentials: true,
   },
 });
@@ -82,7 +82,7 @@ mongoose.connect(
       if (err) {
         console.log(err);
       } else {
-        console.log(`Server running on http://localhost:${PORT}`);
+        console.log(`Server running`);
       }
     });
   }

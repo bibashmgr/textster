@@ -1,9 +1,7 @@
 import React from 'react';
 
-// icons
 import { FaFacebookSquare, FaGoogle } from 'react-icons/fa';
 
-// custom-styling
 import './styles/LoginForm.scss';
 
 const LoginForm = () => {

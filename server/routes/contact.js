@@ -1,14 +1,11 @@
 const express = require('express');
 
-// model
 const User = require('../models/user.js');
 
-// middlewares
 const { getVerify } = require('../middlewares/verify.js');
 
 const router = express.Router();
 
-// get all the contacts of loginUser
 router.get('/', getVerify, async (req, res) => {
   try {
     const filterUsers = [];
@@ -24,7 +21,6 @@ router.get('/', getVerify, async (req, res) => {
   }
 });
 
-// add new contact
 router.put('/add', getVerify, async (req, res) => {
   try {
     const searchUser = await User.findOne({ username: req.body.username });

@@ -3,13 +3,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 
-// icons
 import { FaTimes } from 'react-icons/fa';
 
-// custom-styling
 import './styles/ContactModal.scss';
 
-// actions
 import { setLogger } from '../features/userSlice';
 
 const ContactModal = ({ setIsModalOpen }) => {
@@ -17,7 +14,6 @@ const ContactModal = ({ setIsModalOpen }) => {
 
   const [username, setUsername] = useState('');
 
-  // handlers
   const handleChange = (e) => {
     setUsername(e.target.value);
   };

@@ -1,19 +1,15 @@
 const express = require('express');
 
-// model
 const User = require('../models/user.js');
 const Conversation = require('../models/conversation.js');
 const Message = require('../models/message.js');
 
-// environment-variables
 const CLIENT_URL = process.env.CLIENT_URL;
 
-// middlewares
 const { getVerify } = require('../middlewares/verify.js');
 
 const router = express.Router();
 
-// gets all the conversation of login user
 router.get('/', getVerify, async (req, res) => {
   const membersInfo = [];
   const lastMessages = [];
@@ -35,7 +31,7 @@ router.get('/', getVerify, async (req, res) => {
               membersInfo.push(filterMembers[0]);
             }
           }
-        }); // mappingOfMembers
+        });
         if (messages.length > 0) {
           const filterMessages = messages.filter(
             (message) => message.conversationId === convo._id.toString()
@@ -44,7 +40,7 @@ router.get('/', getVerify, async (req, res) => {
             lastMessages.push(filterMessages[0]);
           }
         }
-      }); // mappingOfConversation
+      });
       membersInfo.map((memberInfo, index) => {
         finalConversation.push({
           ...memberInfo._doc,

@@ -4,10 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 
-// components
 import LoginForm from '../components/LoginForm';
 
-// actions
 import { setLogger } from '../features/userSlice';
 
 const Login = () => {
@@ -26,7 +24,8 @@ const Login = () => {
       .catch((error) => {
         console.log(error.response.data.message);
       });
-  }, [dispatch, navigate]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>

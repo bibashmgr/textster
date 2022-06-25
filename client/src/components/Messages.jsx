@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 // components
 import MessageCard from './MessageCard';
 
-// custom-styling
 import './styles/Messages.scss';
 
 const Messages = ({ messagesInfo, friendInfo }) => {

@@ -4,13 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 
-// icons
 import { FaTimes } from 'react-icons/fa';
 
-// custom-styling
 import './styles/SettingForm.scss';
 
-// actions
 import { setLogger } from '../features/userSlice';
 
 const SettingForm = () => {

@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import Topbar from '../components/Topbar';
 import Main from '../components/Main';
 
-// custom-styling
 import './styles/Layout.scss';
 
 const Home = ({ socket }) => {

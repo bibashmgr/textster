@@ -1,12 +1,9 @@
 import React from 'react';
 import moment from 'moment';
 
-// custom-styling
 import './styles/MessageCard.scss';
 
 const MessageCard = ({ isUser, messageInfo, friendInfo }) => {
-  // styles
-
   const flexLeft = {
     justifyContent: 'flex-start',
   };

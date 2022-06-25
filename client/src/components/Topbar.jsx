@@ -4,13 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 
-// icons
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 
-// custom-styling
 import './styles/Topbar.scss';
 
-// actions
 import { setLogger } from '../features/userSlice';
 
 const Topbar = () => {
@@ -29,7 +26,8 @@ const Topbar = () => {
         }
         console.log(error);
       });
-  }, [dispatch, navigate]);
+    // eslint-disable-next-line
+  }, []);
 
   // handlers
   const handleLogout = () => {

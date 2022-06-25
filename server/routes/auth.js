@@ -1,12 +1,10 @@
 const express = require('express');
 const passport = require('passport');
 
-// middlewares
 const { getVerify } = require('../middlewares/verify.js');
 
 const router = express.Router();
 
-// environment-variables
 const CLIENT_URL = process.env.CLIENT_URL;
 
 router.get(
