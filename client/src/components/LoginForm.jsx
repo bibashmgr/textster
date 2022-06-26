@@ -3,7 +3,6 @@ import React from 'react';
 import './styles/LoginForm.scss';
 
 const LoginForm = () => {
-  // handlers
   const handleGoogleLogin = () => {
     window.open('http://localhost:9999/auth/google', '_self');
   };

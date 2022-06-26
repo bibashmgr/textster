@@ -14,7 +14,7 @@ dotenv.config();
 
 const CLIENT_URL = process.env.CLIENT_URL;
 const SESSION_SECRET = process.env.SESSION_SECRET;
-const CONNECTION_URL = process.env.MONGODB_LOCAL_URL;
+const CONNECTION_URL = process.env.MONGODB_CLOUD_URL;
 const PORT = process.env.PORT || 9999;
 
 require('./config/passport.js');

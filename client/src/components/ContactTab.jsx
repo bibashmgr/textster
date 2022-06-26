@@ -29,7 +29,8 @@ const ContactTab = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, [isModalOpen]);
 
   // handlers
   const handleAdd = () => {
@@ -62,7 +63,7 @@ const ContactTab = () => {
         className='contact-modal'
         style={isModalOpen ? { display: 'flex' } : { display: 'none' }}
       >
-        <ContactModal setIsModalOpen={setIsModalOpen} />
+        <ContactModal setIsModalOpen={setIsModalOpen} logger={logger} />
       </div>
     </div>
   );

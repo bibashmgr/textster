@@ -9,7 +9,7 @@ import './styles/ContactModal.scss';
 
 import { setLogger } from '../features/userSlice';
 
-const ContactModal = ({ setIsModalOpen }) => {
+const ContactModal = ({ setIsModalOpen, logger }) => {
   const dispatch = useDispatch();
 
   const [username, setUsername] = useState('');
@@ -24,7 +24,9 @@ const ContactModal = ({ setIsModalOpen }) => {
     let messages = {};
     let pattern = /^[a-z0-9_.]+$/;
 
-    if (username === '') {
+    if (logger?.username === '') {
+      messages.error = 'Set your username first (Go to Setting)';
+    } else if (username === '') {
       messages.error = 'Username is required';
     } else if (username.length < 3) {
       messages.error = 'Username is too short';
@@ -44,12 +46,12 @@ const ContactModal = ({ setIsModalOpen }) => {
         .then((res) => {
           if (res.status === 201) {
             dispatch(setLogger(res.data));
-            setHelperMessages({ success: 'Username Added' });
+            setHelperMessages({ success: 'User Added' });
             setUsername('');
           }
         })
         .catch((error) => {
-          console.log(error);
+          setHelperMessages({ error: error.response.data.message });
         });
     }
   };
