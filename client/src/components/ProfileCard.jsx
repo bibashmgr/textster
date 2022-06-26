@@ -7,28 +7,22 @@ const ProfileCard = ({ userInfo }) => {
     <div className='profile-card-container'>
       <div className='profile-card-avatar'>
         <img
-          src={
-            userInfo
-              ? userInfo.avatar && userInfo.avatar
-              : './images/default.jpg'
-          }
+          src={`https://avatars.dicebear.com/api/initials/${
+            userInfo?.firstname + userInfo?.lastname || 'W'
+          }.svg?fontSize=35`}
           alt=''
         />
       </div>
       <div className='profile-card-text'>
         <div className='profile-card-fullname'>
-          {userInfo &&
-            userInfo.firstname + ' ' + (userInfo.lastname && userInfo.lastname)}
+          {userInfo?.firstname + ' ' + userInfo?.lastname}
         </div>
         <div className='profile-card-username'>
-          {userInfo &&
-            (userInfo.username ? (
-              userInfo.username
-            ) : (
-              <span style={{ color: 'red', fontStyle: 'italic' }}>
-                username not set
-              </span>
-            ))}
+          {userInfo?.username || (
+            <span style={{ color: 'red', fontStyle: 'italic' }}>
+              username not set
+            </span>
+          )}
         </div>
       </div>
     </div>

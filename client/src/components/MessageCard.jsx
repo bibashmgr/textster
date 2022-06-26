@@ -39,11 +39,9 @@ const MessageCard = ({ isUser, messageInfo, friendInfo }) => {
       {!isUser && (
         <div className='message-card-avatar'>
           <img
-            src={
-              friendInfo
-                ? friendInfo.avatar && friendInfo.avatar
-                : './images/default.jpg'
-            }
+            src={`https://avatars.dicebear.com/api/initials/${
+              friendInfo?.firstname + friendInfo?.lastname || 'W'
+            }.svg?fontSize=35`}
             alt=''
           />
         </div>
