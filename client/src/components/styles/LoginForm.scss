@@ -10,32 +10,41 @@ $secondary-color: #17252A;
     align-items: center;
 
     .login-form-box {
-        width: 25%;
-        height: 70%;
+        width: 30%;
+        height: 65%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background-color: $base-color;
+        align-items: center;
         border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px;
         padding: 50px ;
 
         .login-form-headers {
             width: 100%;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .header-logo{
+                width: 75px;
+            }
 
             .header-brand {
-                font-size: 32px;
+                text-align: center;
+                margin-top: 10px;
+                font-size: 24px;
                 font-weight: 900;
                 text-transform: uppercase;
-                color: $primary-color;
+                color: $base-color;
                 cursor: pointer;
             }
             .header-desc {
+                text-align: center;
                 font-size: 18px;
                 font-weight: 700;
-                text-transform: uppercase;
+                text-transform: capitalize;
                 color: $secondary-color;
                 margin-top: 15px;
                 cursor: pointer;
@@ -43,57 +52,80 @@ $secondary-color: #17252A;
         }
 
         .login-form-buttons {
-            margin-top: 75px;
-            width: 100%;
+            margin-top: 50px;
+            width: 75%;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+
+            .buttons-header{
+                font-size: 12px;
+                font-weight: 600;
+                color: $secondary-color;
+                opacity: 0.75;
+                text-align: center;
+                margin-bottom: 15px;
+            }
 
             .google-btn-container{
                 cursor: pointer;
-                padding: 10px 0px;
                 display: grid;
-                grid-template-columns: 15% 85%;
-                grid-gap: 10px;
+                grid-template-columns: 1fr 2fr;
                 align-items: center;
-                background-color: $primary-color;
-                border-radius: 25px;
+                border: 1px solid rgb(198, 198, 198);
+                border-radius: 5px;
                 
-                .google-btn-logo{
-                    justify-self: flex-end;
-                    font-size: 14px;
+                .google-btn-logo-box{
+                    border-right: 1px solid rgb(198, 198, 198);
+                    display: flex;
+                    justify-content: center;
+                    padding: 10px;
+
+                    .google-btn-logo{
+                        width: 20px;
+                        height: 20px;
+                    }
                 }
                 .google-btn-text{
-                    font-size: 12px;
+                    text-align: center;
+                    font-size: 14px;
                     font-weight: 600;
                 }
             }
-            .facebook-btn-container{
-                cursor: pointer;
-                padding: 10px 0px;
-                margin-top: 25px;
-                display: grid;
-                grid-template-columns: 15% 85%;
-                grid-gap: 10px;
-                align-items: center;
-                background-color: $primary-color;
-                border-radius: 25px;
-                
-                .facebook-btn-logo{
-                    justify-self: flex-end;
-                    font-size: 18px;
-                }
-                .facebook-btn-text{
-                    font-size: 12px;
-                    font-weight: 600;
-                }
-            }
+            // .facebook-btn-container{
+            //     margin-top: 15px;
+            //     cursor: pointer;
+            //     display: grid;
+            //     grid-template-columns: 1fr 2.5fr;
+            //     align-items: center;
+            //     border: 1px solid rgb(198, 198, 198);
+            //     border-radius: 5px;
+
+            //     .facebook-btn-logo-box{
+            //         border-right: 1px solid rgb(198, 198, 198);
+            //         display: flex;
+            //         justify-content: center;
+            //         padding: 10px;
+
+            //         .facebook-btn-logo{
+            //             width: 20px;
+            //             height: 20px;
+            //         }
+            //     }
+
+            //     .facebook-btn-text{
+            //         text-align: center;
+            //         font-size: 14px;
+            //         font-weight: 600;
+            //     }
+            // }
         }
     }
 
     @media (max-width: 1200px) {
         .login-form-box {
             width: 40%;
-            height: 80%;
+            height: 65%;
             border-radius: 25px;
         }
     }
@@ -101,7 +133,7 @@ $secondary-color: #17252A;
     @media (max-width: 900px) {
         .login-form-box {
             width: 50%;
-            height: 80%;
+            height: 65%;
             border-radius: 25px;
         }
     }
@@ -109,7 +141,7 @@ $secondary-color: #17252A;
     @media (max-width: 700px) {
         .login-form-box {
             width: 70%;
-            height: 80%;
+            height: 70%;
             border-radius: 25px;
         }
     }

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { FaFacebookSquare, FaGoogle } from 'react-icons/fa';
-
 import './styles/LoginForm.scss';
 
 const LoginForm = () => {
@@ -14,20 +12,32 @@ const LoginForm = () => {
     <div className='login-form-container'>
       <div className='login-form-box'>
         <div className='login-form-headers'>
-          <div className='header-brand'>Textster</div>
-          <div className='header-desc'>
-            Connect with your friends and family through text
-          </div>
+          <img className='header-logo' src='./images/logo_circle.png' alt='' />
+          <div className='header-brand'>TEXTSTER</div>
+          <div className='header-desc'>Prioritizing text based messages </div>
         </div>
         <div className='login-form-buttons'>
+          <div className='buttons-header'>Continue with</div>
           <div className='google-btn-container' onClick={handleGoogleLogin}>
-            <FaGoogle className='google-btn-logo' />
-            <div className='google-btn-text'>Continue with Google</div>
+            <div className='google-btn-logo-box'>
+              <img
+                src='./icons/google_logo.png'
+                alt=''
+                className='google-btn-logo'
+              />
+            </div>
+            <div className='google-btn-text'>Google</div>
           </div>
-          <div className='facebook-btn-container'>
-            <FaFacebookSquare className='facebook-btn-logo' />
-            <div className='facebook-btn-text'>Continue with Facebook</div>
-          </div>
+          {/* <div className='facebook-btn-container'>
+            <div className='facebook-btn-logo-box'>
+              <img
+                src='./icons/fb_logo.png'
+                alt=''
+                className='facebook-btn-logo'
+              />
+            </div>
+            <div className='facebook-btn-text'>Facebook</div>
+          </div> */}
         </div>
       </div>
     </div>
