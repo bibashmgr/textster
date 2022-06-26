@@ -15,6 +15,7 @@ const SettingForm = () => {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState('');
+  const [helperMessages, setHelperMessages] = useState('');
 
   const handleChange = (e) => {
     setUsername(e.target.value);
@@ -35,12 +36,17 @@ const SettingForm = () => {
       messages.error = 'Invalid character entry';
     }
 
+    if (Object.entries(messages).length > 0) {
+      setHelperMessages(messages);
+    }
+
     if (Object.entries(messages).length === 0) {
       axios
         .put('/user/update', { username: username })
         .then((res) => {
           if (res.status === 201) {
             dispatch(setLogger(res.data));
+            setHelperMessages({ success: 'Username Updated' });
             setUsername('');
           }
         })
@@ -69,6 +75,18 @@ const SettingForm = () => {
             value={username}
             onChange={handleChange}
           />
+          <div className='helper-text-box'>
+            {helperMessages?.error && (
+              <div className='helper-text' style={{ color: 'red' }}>
+                {helperMessages.error}
+              </div>
+            )}
+            {helperMessages?.success && (
+              <div className='helper-text' style={{ color: 'green' }}>
+                {helperMessages.success}
+              </div>
+            )}
+          </div>
         </div>
         <div className='form-button-container'>
           <input type='submit' value='Update' />

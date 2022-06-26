@@ -13,6 +13,7 @@ const ContactModal = ({ setIsModalOpen }) => {
   const dispatch = useDispatch();
 
   const [username, setUsername] = useState('');
+  const [helperMessages, setHelperMessages] = useState('');
 
   const handleChange = (e) => {
     setUsername(e.target.value);
@@ -33,12 +34,17 @@ const ContactModal = ({ setIsModalOpen }) => {
       messages.error = 'Invalid character entry';
     }
 
+    if (Object.entries(messages).length > 0) {
+      setHelperMessages(messages);
+    }
+
     if (Object.entries(messages).length === 0) {
       axios
         .put('/contact/add', { username: username })
         .then((res) => {
           if (res.status === 201) {
             dispatch(setLogger(res.data));
+            setHelperMessages({ success: 'Username Added' });
             setUsername('');
           }
         })
@@ -67,6 +73,18 @@ const ContactModal = ({ setIsModalOpen }) => {
             value={username}
             onChange={handleChange}
           />
+          <div className='helper-text-box'>
+            {helperMessages?.error && (
+              <div className='helper-text' style={{ color: 'red' }}>
+                {helperMessages.error}
+              </div>
+            )}
+            {helperMessages?.success && (
+              <div className='helper-text' style={{ color: 'green' }}>
+                {helperMessages.success}
+              </div>
+            )}
+          </div>
         </div>
         <div className='modal-button-container'>
           <input type='submit' value='Add Contact' />

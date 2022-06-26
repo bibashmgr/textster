@@ -30,11 +30,24 @@ $secondary-color: #17252A;
             }
 
             input {
-                margin-top: 10px;
+                margin-top: 15px;
                 padding: 5px 10px;
                 font-size: 16px;
                 font-weight: 400;
                 outline: none;
+            }
+
+            .helper-text-box{
+                padding: 5px 0px;
+                position: relative;
+                
+                .helper-text{
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    font-size: 12px;
+                    font-weight: 500;
+                }
             }
         }
 
@@ -42,6 +55,7 @@ $secondary-color: #17252A;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            margin-top: 25px;
 
             input {
                 cursor: pointer;
@@ -53,7 +67,6 @@ $secondary-color: #17252A;
                 color: $primary-color;
                 background-color: $base-color;
                 border-radius: 2.5px;
-                margin-top: 10px;
             }
         }
         .cancel-button{
