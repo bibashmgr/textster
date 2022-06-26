@@ -67,10 +67,6 @@ const ChatBox = ({ socket, logger }) => {
       errors.others = 'Text is empty';
     }
 
-    if (Object.entries(errors).length > 0) {
-      console.log(errors);
-    }
-
     if (Object.entries(errors).length === 0) {
       socket.current?.emit('sendMessage', {
         senderId: logger._id,
