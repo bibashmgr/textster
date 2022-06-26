@@ -91,7 +91,7 @@ const ChatBox = ({ socket, logger }) => {
 
   return (
     <div className='chatbox-container'>
-      <div className='chatbox-navbar'>
+      <div className='chatbox-navbar' style={{ zIndex: '1000' }}>
         <ProfileCard userInfo={friendInfo} />
       </div>
       <div className='chatbox-content'>
