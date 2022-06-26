@@ -4,8 +4,9 @@ $secondary-color: #17252A;
 
 .conversation-card-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    width: 100%;
 
     .conversation-card-avatar {
         display: flex;
@@ -20,18 +21,32 @@ $secondary-color: #17252A;
         }
     }
     .conversation-card-text{
+        width: 100%;
         margin-left: 25px;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
 
-        .conversation-card-fullname{
-            font-size: 16px;
-            font-weight: 600;
-            color: $secondary-color;
+        .conversation-card-text-box{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .conversation-card-fullname{
+                font-size: 16px;
+                font-weight: 600;
+                color: $secondary-color;
+            }
+            .conversation-card-desc{
+                font-size: 10px;
+                font-weight: 400;
+                color: $secondary-color;
+            }
         }
-        .conversation-card-desc{
+
+        .conversation-card-time{
+            display: flex;
+            align-items: flex-end;
             font-size: 10px;
             font-weight: 400;
             color: $secondary-color;
