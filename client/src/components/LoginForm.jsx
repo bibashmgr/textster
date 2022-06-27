@@ -16,7 +16,6 @@ const LoginForm = () => {
           <div className='header-desc'>Prioritizing text based messages </div>
         </div>
         <div className='login-form-buttons'>
-          <div className='buttons-header'>Continue with</div>
           <div className='google-btn-container' onClick={handleGoogleLogin}>
             <div className='google-btn-logo-box'>
               <img
@@ -25,18 +24,8 @@ const LoginForm = () => {
                 className='google-btn-logo'
               />
             </div>
-            <div className='google-btn-text'>Google</div>
+            <div className='google-btn-text'>Login with Google</div>
           </div>
-          {/* <div className='facebook-btn-container'>
-            <div className='facebook-btn-logo-box'>
-              <img
-                src='./icons/fb_logo.png'
-                alt=''
-                className='facebook-btn-logo'
-              />
-            </div>
-            <div className='facebook-btn-text'>Facebook</div>
-          </div> */}
         </div>
       </div>
     </div>

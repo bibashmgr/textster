@@ -19,9 +19,9 @@ const Messages = ({ messagesInfo, friendInfo }) => {
   return (
     <div className='messages-container'>
       {logger &&
-        messagesInfo.map((messageInfo) => {
+        messagesInfo.map((messageInfo, index) => {
           return (
-            <div className='messages-box' key={messageInfo._id} ref={scrollRef}>
+            <div className='messages-box' key={index} ref={scrollRef}>
               <MessageCard
                 isUser={messageInfo.senderId === logger._id}
                 messageInfo={messageInfo}
