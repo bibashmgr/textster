@@ -42,13 +42,13 @@ const ContactTab = () => {
       <div style={isModalOpen ? { opacity: '0' } : { opacity: '1' }}>
         {logger &&
           userContacts &&
-          logger.contacts.map((contact, index) => {
+          userContacts.map((contact, index) => {
             return (
               <div
                 className='contact-tab-box'
                 key={index}
                 onClick={() => {
-                  navigate(`/chat/${contact}`);
+                  navigate(`/chat/${contact._id}`);
                 }}
               >
                 <ProfileCard userInfo={userContacts[index]} />
