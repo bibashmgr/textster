@@ -68,13 +68,14 @@ const ChatBox = ({ socket, logger }) => {
     }
 
     if (Object.entries(errors).length === 0) {
+      let msg = message.replace(/</g, ' &lt; ').replace(/>/g, ' &gt; ');
       socket.current?.emit('sendMessage', {
         senderId: logger._id,
         receiverId: id,
-        text: message,
+        text: msg,
       });
       axios
-        .post(`/message/${friendInfo._id}/create`, { text: message })
+        .post(`/message/${friendInfo._id}/create`, { text: msg })
         .then((res) => {
           setIsSent(!isSent);
         })
