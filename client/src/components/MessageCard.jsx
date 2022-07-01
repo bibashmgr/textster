@@ -40,7 +40,7 @@ const MessageCard = ({ isUser, messageInfo, friendInfo }) => {
         <div className='message-card-avatar'>
           <img
             src={`https://avatars.dicebear.com/api/initials/${
-              friendInfo?.firstname + friendInfo?.lastname || 'W'
+              friendInfo?.firstname + friendInfo?.lastname || 'UK'
             }.svg?fontSize=35`}
             alt=''
           />

@@ -9,7 +9,7 @@ const ConversationCard = ({ userInfo }) => {
       <div className='conversation-card-avatar'>
         <img
           src={`https://avatars.dicebear.com/api/initials/${
-            userInfo?.firstname + userInfo?.lastname || 'W'
+            userInfo?.firstname + userInfo?.lastname || 'UK'
           }.svg?fontSize=35`}
           alt=''
         />
