@@ -5,36 +5,71 @@ import './styles/Register.scss';
 const Register = () => {
   return (
     <section className='register-section'>
-      <form className='register-form'>
-        <div className='form-title'>Create Account</div>
-        <div className='input-field-container'>
-          <label htmlFor='firstname'>First Name:</label>
-          <input type='text' name='firstname' autoComplete='off' />
-        </div>
-        <div className='input-field-container'>
-          <label htmlFor='lastname'>Last Name:</label>
-          <input type='text' name='lastname' autoComplete='off' />
-        </div>
-        <div className='input-field-container'>
-          <label htmlFor='email'>Email:</label>
-          <input type='email' name='email' autoComplete='off' />
-        </div>
-        <div className='input-field-container'>
-          <label htmlFor='password'>Password:</label>
-          <input type='password' name='password' autoComplete='off' />
-        </div>
-        <div className='input-field-container'>
-          <label htmlFor='confirm-password'>Confirm Password:</label>
-          <input type='password' name='confirm-password' autoComplete='off' />
-        </div>
-        <button type='submit' className='register-btn'>
-          Register
-        </button>
-        <div className='helper-text'>
-          <p>Already have an account?</p>
-          <a href='/login'>Login</a>
-        </div>
-      </form>
+      <div className='register-form-container'>
+        <form action='' className='register-form'>
+          <h1 className='form-title'>Create an account</h1>
+          <div className='form-fields'>
+            <div className='form-field'>
+              <input
+                type='text'
+                name='firstname'
+                placeholder='First Name'
+                pattern='[a-zA-Z]+'
+                required
+              />
+            </div>
+            <div className='form-field'>
+              <input
+                type='text'
+                name='lastname'
+                placeholder='Last Name'
+                pattern='[a-zA-Z]+'
+                required
+              />
+            </div>
+            <div className='form-field'>
+              <input
+                type='email'
+                name='email'
+                placeholder='Email'
+                autoComplete='off'
+                required
+              />
+            </div>
+            <div className='form-field'>
+              <input
+                type='password'
+                name='password'
+                placeholder='Password'
+                required
+                minlength='8'
+                maxlength='20'
+                autoComplete='off'
+              />
+            </div>
+            <div className='form-field'>
+              <input
+                type='password'
+                name='password2'
+                placeholder='Confirm Password'
+                required
+                minlength='8'
+                maxlength='20'
+                autoComplete='off'
+              />
+            </div>
+          </div>
+          <div className='form-buttons'>
+            <button type='submit' className='button'>
+              Sign up
+            </button>
+          </div>
+          <div className='form-subtext'>
+            <p>Already have an account?</p>
+            <a href='/login'>Login</a>
+          </div>
+        </form>
+      </div>
     </section>
   );
 };
