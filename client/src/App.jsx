@@ -8,6 +8,7 @@ import './App.scss';
 import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Login from './pages/Login';
+import Register from './pages/Register';
 import Setting from './pages/Setting';
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/' element={<Home socket={socket} />} />
         <Route path='/chat/:id' element={<Chat socket={socket} />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/setting' element={<Setting />} />
       </Routes>
     </Router>

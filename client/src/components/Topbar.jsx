@@ -32,9 +32,7 @@ const Topbar = () => {
   }, []);
 
   // handlers
-  const handleLogout = () => {
-    window.open(`${BASE_URL}/auth/logout`, '_self');
-  };
+  const handleLogout = () => {};
 
   return (
     <div className='topbar-container'>
