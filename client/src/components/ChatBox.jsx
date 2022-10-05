@@ -19,9 +19,11 @@ const ChatBox = ({ socket, logger }) => {
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [isSent, setIsSent] = useState(false);
 
+  const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
   useEffect(() => {
     axios
-      .get(`/user/${id}`)
+      .get(`${BASE_URL}/user/${id}`)
       .then((res) => {
         setFriendInfo(res.data);
       })
@@ -49,7 +51,7 @@ const ChatBox = ({ socket, logger }) => {
 
   useEffect(() => {
     axios
-      .get(`/message/${id}`)
+      .get(`${BASE_URL}/message/${id}`)
       .then((res) => {
         setMessagesInfo(res.data);
       })

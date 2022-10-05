@@ -21,8 +21,7 @@ require('./config/passport.js');
 
 app.use(
   cors({
-    origin: CLIENT_URL,
-    credentials: true,
+    origin: '*',
   })
 );
 app.use(bodyParser.urlencoded({ extended: true }));

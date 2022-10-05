@@ -20,9 +20,11 @@ const ContactTab = () => {
   const { logger, userContacts } = useSelector((state) => state.user);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
   useEffect(() => {
     axios
-      .get('/contact')
+      .get(`${BASE_URL}/contact`)
       .then((res) => {
         dispatch(setUserContacts(res.data));
       })

@@ -16,15 +16,18 @@ const ConversationTab = () => {
 
   const { userConversations } = useSelector((state) => state.user);
 
+  const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
   useEffect(() => {
     axios
-      .get('/conversation')
+      .get(`${BASE_URL}/conversation`)
       .then((res) => {
         dispatch(setUserConversations(res.data));
       })
       .catch((error) => {
         console.log(error);
       });
+    // eslint-disable-next-line
   }, [dispatch]);
 
   return (

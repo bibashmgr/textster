@@ -19,6 +19,8 @@ const ContactModal = ({ setIsModalOpen, logger }) => {
     setUsername(e.target.value);
   };
 
+  const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     let messages = {};
@@ -42,7 +44,7 @@ const ContactModal = ({ setIsModalOpen, logger }) => {
 
     if (Object.entries(messages).length === 0) {
       axios
-        .put('/contact/add', { username: username })
+        .put(`${BASE_URL}/contact/add`, { username: username })
         .then((res) => {
           if (res.status === 201) {
             dispatch(setLogger(res.data));

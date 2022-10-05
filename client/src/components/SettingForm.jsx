@@ -14,6 +14,8 @@ const SettingForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
   const [username, setUsername] = useState('');
   const [helperMessages, setHelperMessages] = useState('');
 
@@ -42,7 +44,7 @@ const SettingForm = () => {
 
     if (Object.entries(messages).length === 0) {
       axios
-        .put('/user/update', { username: username })
+        .put(`${BASE_URL}/user/update`, { username: username })
         .then((res) => {
           if (res.status === 201) {
             dispatch(setLogger(res.data));

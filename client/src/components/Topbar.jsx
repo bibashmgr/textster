@@ -14,9 +14,11 @@ const Topbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
   useEffect(() => {
     axios
-      .get('/auth/login/success')
+      .get(`${BASE_URL}/auth/login/success`)
       .then((res) => {
         dispatch(setLogger(res.data));
       })
@@ -31,7 +33,7 @@ const Topbar = () => {
 
   // handlers
   const handleLogout = () => {
-    window.open('http://localhost:9999/auth/logout', '_self');
+    window.open(`${BASE_URL}/auth/logout`, '_self');
   };
 
   return (

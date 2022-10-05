@@ -3,8 +3,10 @@ import React from 'react';
 import './styles/LoginForm.scss';
 
 const LoginForm = () => {
+  const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
   const handleGoogleLogin = () => {
-    window.open('http://localhost:9999/auth/google', '_self');
+    window.open(`${BASE_URL}/auth/google`, '_self');
   };
 
   return (

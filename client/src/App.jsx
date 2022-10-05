@@ -14,9 +14,7 @@ const App = () => {
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io('ws://localhost:9999', {
-      withCredentials: true,
-    });
+    socket.current = io('ws://localhost:9999');
   }, []);
 
   return (
