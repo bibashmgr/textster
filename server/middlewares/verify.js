@@ -1,8 +1,26 @@
+const dotenv = require('dotenv');
+const jwt = require('jsonwebtoken');
+
+dotenv.config();
+
+const ACCESS_TOKEN = process.env.SECRET_ACCESS_TOKEN;
+
 const getVerify = (req, res, next) => {
-  if (!req.user || req.user === undefined || req.user === null) {
-    res.status(401).json({ message: 'Expired' });
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  ) {
+    try {
+      token = req.headers.authorization.split(' ')[1];
+      const decoded = jwt.verify(token, ACCESS_TOKEN);
+      req.userId = decoded.id;
+      next();
+    } catch (error) {
+      res.status(403).json('ACCESS DENIED');
+    }
   } else {
-    next();
+    res.status(401).json('TOKEN NOT FOUND');
   }
 };
 

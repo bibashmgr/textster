@@ -3,8 +3,6 @@ const express = require('express');
 const Conversation = require('../models/conversation.js');
 const Message = require('../models/message.js');
 
-const CLIENT_URL = process.env.CLIENT_URL;
-
 const { getVerify } = require('../middlewares/verify.js');
 
 const router = express.Router();
@@ -35,7 +33,7 @@ router.get('/:id', getVerify, async (req, res) => {
   }
 });
 
-router.post('/:id/create', async (req, res) => {
+router.post('/:id/create', getVerify, async (req, res) => {
   try {
     const finalConversation = [];
     const conversation = await Conversation.find({

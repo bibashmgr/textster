@@ -4,20 +4,14 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
-const passport = require('passport');
 const { Server } = require('socket.io');
 
 const app = express();
 dotenv.config();
 
 const CLIENT_URL = process.env.CLIENT_URL;
-const SESSION_SECRET = process.env.SESSION_SECRET;
 const CONNECTION_URL = process.env.MONGODB_LOCAL_URL;
 const PORT = process.env.PORT || 9999;
-
-require('./config/passport.js');
 
 app.use(
   cors({
@@ -26,19 +20,6 @@ app.use(
 );
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
-app.use(
-  session({
-    secret: SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24,
-    },
-    store: MongoStore.create({ mongoUrl: CONNECTION_URL }),
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
 
 const indexRoutes = require('./routes/index.js');
 const authRoutes = require('./routes/auth.js');

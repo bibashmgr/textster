@@ -4,8 +4,6 @@ const User = require('../models/user.js');
 const Conversation = require('../models/conversation.js');
 const Message = require('../models/message.js');
 
-const CLIENT_URL = process.env.CLIENT_URL;
-
 const { getVerify } = require('../middlewares/verify.js');
 
 const router = express.Router();
