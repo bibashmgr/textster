@@ -1,25 +1,27 @@
 .container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: #f1f5fe;
 
+  .box {
+    background: #fff;
+    width: 60%;
+    height: 100%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    .form-container {
+      margin-top: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 768px) {
     .box {
-        width: 60%;
-        height: 100%;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        
-        .form-container{
-            margin-top: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      width: 100%;
     }
-
-    @media (max-width: 768px) {
-        .box {
-            width: 100%;
-        }
-    }
+  }
 }
