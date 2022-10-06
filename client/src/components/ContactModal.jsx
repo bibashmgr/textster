@@ -43,8 +43,16 @@ const ContactModal = ({ setIsModalOpen, logger }) => {
     }
 
     if (Object.entries(messages).length === 0) {
-      axios
-        .put(`${BASE_URL}/contact/add`, { username: username })
+      axios({
+        method: 'put',
+        url: `${BASE_URL}/contact/add`,
+        data: {
+          username: username,
+        },
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      })
         .then((res) => {
           if (res.status === 201) {
             dispatch(setLogger(res.data));

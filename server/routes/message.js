@@ -13,7 +13,7 @@ router.get('/:id', getVerify, async (req, res) => {
     const messages = await Message.find().sort({ createdAt: 1 });
     if (messages) {
       const conversation = await Conversation.find({
-        members: { $in: [req.user._id.toString()] },
+        members: { $in: [req.userId.toString()] },
       });
       const filterConversation = conversation.map((convo) => {
         if (convo.members.includes(req.params.id)) {
@@ -37,7 +37,7 @@ router.post('/:id/create', getVerify, async (req, res) => {
   try {
     const finalConversation = [];
     const conversation = await Conversation.find({
-      members: { $in: [req.user._id.toString()] },
+      members: { $in: [req.userId.toString()] },
     });
     const filterConversation = conversation.map((convo) => {
       if (convo.members.includes(req.params.id)) {
@@ -47,19 +47,19 @@ router.post('/:id/create', getVerify, async (req, res) => {
     if (finalConversation.length > 0) {
       const newMessage = new Message({
         conversationId: finalConversation[0]._id,
-        senderId: req.user._id.toString(),
+        senderId: req.userId.toString(),
         text: req.body.text,
       });
       const savedMessage = await newMessage.save();
       res.status(201).json({ message: 'Message sent' });
     } else {
       const newConversation = new Conversation({
-        members: [req.user._id.toString(), req.params.id],
+        members: [req.userId.toString(), req.params.id],
       });
       const savedConversation = await newConversation.save();
       const newMessage = new Message({
         conversationId: savedConversation._id,
-        senderId: req.user._id.toString(),
+        senderId: req.userId.toString(),
         text: req.body.text,
       });
       const savedMessage = await newMessage.save();

@@ -15,13 +15,13 @@ router.get('/', getVerify, async (req, res) => {
   try {
     const users = await User.find();
     const conversations = await Conversation.find({
-      members: { $in: [req.user._id.toString()] },
+      members: { $in: [req.userId.toString()] },
     });
     const messages = await Message.find().sort({ createdAt: -1 });
     if (conversations.length > 0) {
       conversations.map((convo) => {
         convo.members.map((member) => {
-          if (member !== req.user._id.toString()) {
+          if (member !== req.userId.toString()) {
             const filterMembers = users.filter(
               (user) => user._id.toString() === member
             );

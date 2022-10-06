@@ -9,7 +9,6 @@ import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Setting from './pages/Setting';
 
 const App = () => {
   const socket = useRef();
@@ -25,7 +24,6 @@ const App = () => {
         <Route path='/chat/:id' element={<Chat socket={socket} />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/setting' element={<Setting />} />
       </Routes>
     </Router>
   );

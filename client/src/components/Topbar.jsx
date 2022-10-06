@@ -18,7 +18,11 @@ const Topbar = () => {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/auth/login/success`)
+      .get(`${BASE_URL}/user`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      })
       .then((res) => {
         dispatch(setLogger(res.data));
       })
@@ -32,7 +36,17 @@ const Topbar = () => {
   }, []);
 
   // handlers
-  const handleLogout = () => {};
+  const handleLogout = () => {
+    window.localStorage.removeItem('accessToken');
+    navigate('/login');
+  };
+
+  useEffect(() => {
+    if (!localStorage.getItem('accessToken')) {
+      navigate('/login');
+    }
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className='topbar-container'>

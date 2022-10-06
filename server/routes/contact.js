@@ -10,8 +10,9 @@ router.get('/', getVerify, async (req, res) => {
   try {
     const filterUsers = [];
     const results = await User.find();
+    const user = await User.findById(req.userId);
     const mapResults = results.map((result) => {
-      if (req.user.contacts.includes(result._id)) {
+      if (user.contacts.includes(result._id)) {
         filterUsers.push(result);
       }
     });
@@ -23,12 +24,13 @@ router.get('/', getVerify, async (req, res) => {
 
 router.put('/add', getVerify, async (req, res) => {
   try {
+    const user = await User.findById(req.userId);
     const searchUser = await User.findOne({ username: req.body.username });
     if (searchUser) {
-      const isAdded = req.user.contacts.includes(searchUser._id);
+      const isAdded = user.contacts.includes(searchUser._id);
       if (!isAdded) {
         User.findByIdAndUpdate(
-          req.user._id.toString(),
+          req.userId.toString(),
           { $push: { contacts: searchUser._id } },
           { new: true },
           (error, updatedUser) => {

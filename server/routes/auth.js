@@ -18,13 +18,15 @@ router.post('/register', async (req, res) => {
     const user = await User.findOne({ username: req.body.username });
     if (!user) {
       const newUser = await new User({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
         username: req.body.username,
         password: hashPassword,
       });
       const savedUser = await newUser.save();
       res.status(201).json('Registration Successful');
     } else {
-      res.status(409).json('User already registered');
+      res.status(409).json('Username already registered');
     }
   } catch (error) {
     res.status(400).json(error.message);
@@ -44,7 +46,7 @@ router.post('/login', async (req, res) => {
         const accessToken = jwt.sign({ id: user._id }, ACCESS_TOKEN, {
           expiresIn: 24 * 60 * 60,
         });
-        res.status(200).json({ accessToken });
+        res.status(200).json({ userInfo: user, accessToken: accessToken });
       }
     }
   } catch (error) {

@@ -24,7 +24,11 @@ const ContactTab = () => {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/contact`)
+      .get(`${BASE_URL}/contact`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      })
       .then((res) => {
         dispatch(setUserContacts(res.data));
       })

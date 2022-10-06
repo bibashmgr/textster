@@ -20,7 +20,11 @@ const ConversationTab = () => {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/conversation`)
+      .get(`${BASE_URL}/conversation`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      })
       .then((res) => {
         dispatch(setUserConversations(res.data));
       })

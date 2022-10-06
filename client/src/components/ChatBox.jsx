@@ -23,7 +23,11 @@ const ChatBox = ({ socket, logger }) => {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/user/${id}`)
+      .get(`${BASE_URL}/user/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      })
       .then((res) => {
         setFriendInfo(res.data);
       })
@@ -51,7 +55,11 @@ const ChatBox = ({ socket, logger }) => {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/message/${id}`)
+      .get(`${BASE_URL}/message/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      })
       .then((res) => {
         setMessagesInfo(res.data);
       })
@@ -76,8 +84,19 @@ const ChatBox = ({ socket, logger }) => {
         receiverId: id,
         text: msg,
       });
-      axios
-        .post(`/message/${friendInfo._id}/create`, { text: msg })
+      axios(
+        // .post(`/message/${friendInfo._id}/create`, { text: msg })
+        {
+          method: 'post',
+          url: `${BASE_URL}/message/${friendInfo._id}/create`,
+          data: {
+            text: msg,
+          },
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
+        }
+      )
         .then((res) => {
           setIsSent(!isSent);
         })

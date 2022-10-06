@@ -12,7 +12,7 @@ const Home = ({ socket }) => {
   const { logger } = useSelector((state) => state.user);
 
   useEffect(() => {
-    socket.current?.emit('getUserId', logger._id);
+    socket.current?.emit('getUserId', logger?._id);
   }, [logger, socket]);
 
   return (
