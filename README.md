@@ -6,8 +6,8 @@ A simple chat app that enables a private text-based messaging function between t
 - This app only allows conversation between two users.
 - A user can add another user by entering his/her username.
 
-![Regsiter Page](https://https://github.com/bibashmgr/textster/blob/dev/images/register.png)
-![Login Page](https://https://github.com/bibashmgr/textster/blob/dev/images/login.png)
-![Conversation Tab](https://https://github.com/bibashmgr/textster/blob/dev/images/conversation.png)
-![Contact Tab](https://https://github.com/bibashmgr/textster/blob/dev/images/contact.png)
-![Message Tab](https://https://github.com/bibashmgr/textster/blob/dev/images/message.png)
+![Regsiter Page](https://https://github.com/bibashmgr/textster/tree/dev/images/register.png)
+![Login Page](https://https://github.com/bibashmgr/textster/tree/dev/images/login.png)
+![Conversation Tab](https://https://github.com/bibashmgr/textster/tree/dev/images/conversation.png)
+![Contact Tab](https://https://github.com/bibashmgr/textster/tree/dev/images/contact.png)
+![Message Tab](https://https://github.com/bibashmgr/textster/tree/dev/images/message.png)
