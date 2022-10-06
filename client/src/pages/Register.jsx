@@ -15,6 +15,7 @@ const Register = () => {
     password: '',
     password2: '',
   });
+  const [msg, setMsg] = useState({});
 
   const handleChange = (e) => {
     setUserInfo({
@@ -28,21 +29,28 @@ const Register = () => {
     let messages = {};
 
     if (userInfo.password !== userInfo.password2) {
-      messages.error = "Password doesn't match";
+      messages.password = "Password doesn't match";
     }
 
     if (Object.entries(messages).length > 0) {
-      console.log(messages);
+      setMsg(messages);
     }
 
     if (Object.entries(messages).length === 0) {
       axios
         .post(`${BASE_URL}/auth/register`, userInfo)
         .then((res) => {
-          console.log(res);
+          setUserInfo({
+            firstname: '',
+            lastname: '',
+            username: '',
+            password: '',
+            password2: '',
+          });
+          msg.success = 'Registeration Successful';
         })
         .catch((error) => {
-          console.log(error);
+          msg.error = error.response.data;
         });
     }
   };
@@ -58,7 +66,13 @@ const Register = () => {
     <section className='register-section'>
       <div className='register-form-container'>
         <form className='register-form' onSubmit={handleSubmit}>
-          <h1 className='form-title'>Create an account</h1>
+          <div className='form-title'>
+            <h1 className='title'>Create an account</h1>
+            {msg.success && (
+              <div className='success-message'>{msg.success}</div>
+            )}
+            {msg.error && <div className='error-message'>{msg.error}</div>}
+          </div>
           <div className='form-fields'>
             <div className='form-field'>
               <input
@@ -108,6 +122,9 @@ const Register = () => {
                 value={userInfo.password}
                 onChange={handleChange}
               />
+              {msg.password && (
+                <div className='error-message'>{msg.password}</div>
+              )}
             </div>
             <div className='form-field'>
               <input

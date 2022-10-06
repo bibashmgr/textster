@@ -29,8 +29,12 @@ $secondary-color: #17252a;
       gap: 20px;
 
       .form-title {
-        font-size: 28px;
-        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        .title {
+          font-size: 28px;
+          font-weight: 600;
+        }
       }
 
       .form-fields {
@@ -85,4 +89,15 @@ $secondary-color: #17252a;
       }
     }
   }
+}
+
+.error-message {
+  font-size: 10px;
+  margin-top: 5px;
+  color: red;
+}
+.success-message {
+  font-size: 10px;
+  margin-top: 5px;
+  color: green;
 }

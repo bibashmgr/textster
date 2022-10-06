@@ -38,9 +38,12 @@ const Login = () => {
         .then((res) => {
           console.log(res);
           if (res.status === 200) {
-            messages.success = 'Login Successful';
             dispatch(setLogger(res.data.user));
             window.localStorage.setItem('accessToken', res.data.accessToken);
+            setUserInfo({
+              username: '',
+              password: '',
+            });
             navigate('/');
           }
           if (res.status >= 400) {
